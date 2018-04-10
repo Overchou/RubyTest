@@ -1,0 +1,27 @@
+
+<%= form_with scope: :invoice, url: invoices_path, local: true do |form| %>
+
+  <% if @invoice.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@invoice.errors.count, "error") %> prohibited
+      this invoice from being generated:
+    </h2>
+    <ul>
+      <% @invoice.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+
+  <p>
+    <%= form.label :rent, "Enter your rent (€)" %><br><br>
+    <%= form.number_field :rent, :step => "0.01" %>
+  </p>
+
+  <p>
+    <%= form.submit "Generate invoice" %>
+  </p>
+<% end %>

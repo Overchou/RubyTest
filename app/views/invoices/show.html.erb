@@ -1,0 +1,60 @@
+<div class="container">
+  <table class="responsive-table">
+    <caption>Monthly rent: <%= @invoice.rent %>€</caption>
+    <thead>
+      <tr>
+        <th scope="col">Designation</th>
+        <th scope="col">Price excl VAT</th>
+        <th scope="col">VAT</th>
+        <th scope="col">Price incl VAT</th>
+      </tr>
+    </thead>
+    <tfoot>
+      <tr>
+      </tr>
+    </tfoot>
+    <tbody>
+      <tr>
+        <th scope="row">Insurance Prenium</th>
+        <td data-title="excl_vat_insurance_prenium" data-type="currency"><%= @calculs.instance_variable_get(:@insurance_prenium).round(2) %></td>
+        <td data-title="vat_insurance_prenium" data-type="currency"><%= @calculs.instance_variable_get(:@insurance_prenium_VAT).round(2) %></td>
+        <td data-title="incl_vat_insurance_prenium" data-type="currency"><%= @calculs.instance_variable_get(:@price_incl_vat_insurance).round(2) %></td>
+      </tr>
+      <tr>
+        <th scope="row">Broker Fee</th>
+        <td data-title="excl_vat_broker_fee" data-type="currency"><%= @calculs.instance_variable_get(:@broker_fee).round(2) %></td>
+        <td data-title="vat_broker_fee" data-type="currency"><%= @calculs.instance_variable_get(:@broker_fee_VAT).round(2) %></td>
+        <td data-title="incl_vat_broker_fee" data-type="currency"><%= @calculs.instance_variable_get(:@price_incl_vat_broker_fee).round(2) %></td>
+      </tr>
+      <tr>
+        <th scope="row">Service Fee</th>
+        <td data-title="excl_vat_service_fee" data-type="currency"><%= @calculs.instance_variable_get(:@garantme_services_HT).round(2) %></td>
+        <td data-title="vat_service_fee" data-type="currency"><%= @calculs.instance_variable_get(:@service_fee_VAT).round(2) %></td>
+        <td data-title="incl_vat_service_fee" data-type="currency"><%= @calculs.instance_variable_get(:@price_incl_vat_service_fee).round(2) %></td>
+      </tr>
+      <tr>
+        <th scope="row">Sub-total</th>
+        <td data-title="excl_vat_sub_total" data-type="currency"><%= @calculs.instance_variable_get(:@price_excl_vat_sub_total).round(2) %></td>
+        <td data-title="vat_sub_total" data-type="currency"><%= @calculs.instance_variable_get(:@sub_total_VAT).round(2) %></td>
+        <td data-title="incl_vat_sub_total" data-type="currency"><%= @calculs.instance_variable_get(:@price_incl_vat_sub_total).round(2) %></td>
+      </tr>
+      <tr>
+        <th scope="row">Discount</th>
+        <td data-title="excl_vat_discount" data-type="currency"><%= @calculs.instance_variable_get(:@price_excl_vat_discount).round(2) %></td>
+        <td data-title="vat_discount" data-type="currency"><%= @calculs.instance_variable_get(:@discount_VAT).round(2) %></td>
+        <td data-title="incl_vat_discount" data-type="currency"><%= @calculs.instance_variable_get(:@user_discount).round(2) %></td>
+      </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th scope="row">Total</th>
+          <td data-title="excl_vat_total" data-type="currency"><%= @calculs.instance_variable_get(:@price_excl_vat_total).round(2) %></td>
+          <td data-title="vat_total" data-type="currency"><%= @calculs.instance_variable_get(:@total_VAT).round(2) %></td>
+          <td class="total-price" data-title="incl_vat_total" data-type="currency"><%= @calculs.instance_variable_get(:@price_incl_vat_total).round(2) %></td>
+        </tr>
+      </tfoot>
+  </table>
+
+  <!-- <%= @calculs.instance_variable_get(:@tax) %> -->
+  <!-- <%= @calculs.inspect %> -->
+</div>
